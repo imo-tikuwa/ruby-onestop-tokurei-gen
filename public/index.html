@@ -3,8 +3,98 @@
 <head>
 <title>test</title>
 <link rel="shortcut icon" href="/favicon.ico">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<style type="text/css">
+#check_one_0,
+#check_two_0 {
+    margin-left:20px;
+}
+</style>
 </head>
 <body>
-<a href="/download_pdf" target="_blank">PDF Download</a>
+<div class="mx-auto mt-4 mb-4" style="width: 800px;">
+  <h1><small>ワンストップ特例申請書ジェネレータ</small></h1>
+  <ul>
+    <li>ふるさと納税で寄付先に送付するワンストップ特例申請書について入力した内容を元にPDF出力を行うツールです。</li>
+    <li>当ツールを使用しての申請書提出の実績はないので心配な方は使用しないようお願いします。</li>
+  </ul>
+  <!-- created by https://bootstrapformbuilder.com/ -->
+  <form action="/download_pdf" method="POST">
+    <div class="form-group">
+      <label for="mayor">送付先</label>
+      <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="zip">郵便番号</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">〒</div>
+        </div>
+        <input id="zip" name="zip" placeholder="101-0032" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="address">住所</label>
+      <textarea id="address" name="address" cols="40" rows="3" class="form-control" aria-describedby="addressHelpBlock"></textarea>
+      <span id="addressHelpBlock" class="form-text text-muted"><small>都道府県～部屋番号までを複数行で入力してください</small></span>
+    </div>
+    <div class="form-group">
+      <label for="name">氏名</label>
+      <input id="name" name="name" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="name_kana">フリガナ</label>
+      <input id="name_kana" name="name_kana" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="my_number">個人番号</label>
+      <input id="my_number" name="my_number" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>性別</label>
+      <div>
+        <div class="form-check form-check-inline">
+          <input name="radio" id="radio_0" type="radio" class="form-check-input" value="man" checked>
+          <label for="radio_0" class="form-check-label">男</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input name="radio" id="radio_1" type="radio" class="form-check-input" value="woman">
+          <label for="radio_1" class="form-check-label">女</label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birth_date">生年月日</label>
+      <input id="birth_date" name="birth_date" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="donation_date">寄附年月日</label>
+      <input id="donation_date" name="donation_date" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <label for="donation_amount">寄附金額</label>
+      <input id="donation_amount" name="donation_amount" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+      <div>
+        <div class="form-check form-check-inline">
+          <label for="check_one_0" class="form-check-label">①　地方税法附則第７条第１項（第８項）に規定する申告特例対象寄附者である</label>
+          <input name="check_one" id="check_one_0" type="checkbox" class="form-check-input" value="yes">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <div class="form-check form-check-inline">
+          <label for="check_two_0" class="form-check-label">②　地方税法附則第７条第２項（第９項）に規定する要件に該当する者である</label>
+          <input name="check_two" id="check_two_0" type="checkbox" class="form-check-input" value="yes">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button name="submit" type="submit" class="btn btn-secondary rounded-0" style="width:100%">PDF作成</button>
+    </div>
+  </form>
+</div>
 </body>
 </html>

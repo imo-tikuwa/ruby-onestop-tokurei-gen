@@ -9,7 +9,7 @@ get '/' do
 end
 
 # PDFをダウンロードするルーティング
-get '/download_pdf' do
+post '/download_pdf' do
 
   test1 = Time.now.strftime("%Y年%m月%d日 %H時%M分%S秒")
   file_name = Time.now.strftime("%Y%m%d%H%M%S") + '_onestop.pdf'
