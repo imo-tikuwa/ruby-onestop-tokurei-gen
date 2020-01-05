@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>test</title>
+<meta charset="utf-8"/>
+<title>ワンストップ特例申請書ジェネレータ</title>
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style type="text/css">
 #check_one_0,
 #check_two_0 {
-    margin-left:20px;
+    margin-left: 20px;
+}
+h1 {
+    text-align: center;
 }
 </style>
 </head>
@@ -49,16 +53,17 @@
     <div class="form-group">
       <label for="my_number">個人番号</label>
       <input id="my_number" name="my_number" type="text" class="form-control">
+      <span id="my_numberHelpBlock" class="form-text text-muted"><small>12桁の半角数字で入力してください</small></span>
     </div>
     <div class="form-group">
       <label>性別</label>
       <div>
         <div class="form-check form-check-inline">
-          <input name="radio" id="radio_0" type="radio" class="form-check-input" value="man" checked>
+          <input name="sex" id="radio_0" type="radio" class="form-check-input" value="man" checked>
           <label for="radio_0" class="form-check-label">男</label>
         </div>
         <div class="form-check form-check-inline">
-          <input name="radio" id="radio_1" type="radio" class="form-check-input" value="woman">
+          <input name="sex" id="radio_1" type="radio" class="form-check-input" value="woman">
           <label for="radio_1" class="form-check-label">女</label>
         </div>
       </div>
@@ -73,8 +78,15 @@
     </div>
     <div class="form-group">
       <label for="donation_amount">寄附金額</label>
-      <input id="donation_amount" name="donation_amount" type="text" class="form-control">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">￥</div>
+        </div>
+        <input id="donation_amount" name="donation_amount" type="text" class="form-control">
+      </div>
+      <span id="donation_amountHelpBlock" class="form-text text-muted"><small>半角数字で入力してください</small></span>
     </div>
+    <label>チェック事項</label>
     <div class="form-group">
       <div>
         <div class="form-check form-check-inline">
