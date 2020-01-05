@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'thinreports'
 require 'date'
+require 'wareki'
 
 # index.htmlを表示
 get '/' do
@@ -15,7 +16,7 @@ post '/download_pdf' do
   file_path = 'output/' + file_name
 
   date = Date.today
-  current_year = date.strftime("%Y").to_i - 2018
+  current_year = date.strftime("%Jg")
   current_month = date.strftime("%-m")
   current_day = date.strftime("%-d")
 
