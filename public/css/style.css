@@ -23,3 +23,11 @@ label {
 .datepicker-days td:last-child {
   color: #00f;
 }
+
+body {
+	background-image: url("../img/p_da0740_m_da07404.jpg");
+}
+.container {
+	background-color: rgba(255,255,255,0.9);
+	border: 1px solid #eee;
+}
