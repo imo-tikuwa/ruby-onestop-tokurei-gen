@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+#check_one_0,
+#check_two_0 {
+    margin-left: 20px;
+}
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+h1+ul li {
+    font-size: 80%;
+}
+label {
+    font-size: 90%;
+}
+
+.datepicker-days th.dow:first-child,
+.datepicker-days td:first-child {
+  color: #f00;
+}
+.datepicker-days th.dow:last-child,
+.datepicker-days td:last-child {
+  color: #00f;
+}

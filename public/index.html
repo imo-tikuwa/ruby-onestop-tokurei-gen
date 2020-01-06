@@ -3,38 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <title>ワンストップ特例申請書ジェネレータ</title>
-<link rel="shortcut icon" href="/favicon.ico">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/css/tempusdominus-bootstrap-4.min.css" />
-<style type="text/css">
-#check_one_0,
-#check_two_0 {
-    margin-left: 20px;
-}
-h1 {
-    text-align: center;
-    font-size: 1.5rem;
-}
-h1+ul li {
-    font-size: 80%;
-}
-label {
-    font-size: 90%;
-}
-
-.datepicker-days th.dow:first-child,
-.datepicker-days td:first-child {
-  color: #f00;
-}
-.datepicker-days th.dow:last-child,
-.datepicker-days td:last-child {
-  color: #00f;
-}
-</style>
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="./node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css" />
+<link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
-  <div class="container mt-3 mb-3" style="width: 800px;">
+  <div class="container mt-3 mb-3" style="width: 1020px;">
     <h1>ワンストップ特例申請書ジェネレータ</h1>
     <ul>
       <li>ふるさと納税で寄付先に送付するワンストップ特例申請書について入力した内容を元にPDF出力を行うツールです。</li>
@@ -43,7 +18,14 @@ label {
     <!-- created by https://bootstrapformbuilder.com/ -->
     <form action="./" method="POST">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="mayor">送付先</label>
+            <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control form-control-sm rounded-0">
+            <span id="mayorHelpBlock" class="form-text text-muted"><small>寄附した自治体の宛名を入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="form-group">
             <label for="zip">郵便番号</label>
             <div class="input-group input-group-sm">
@@ -51,42 +33,46 @@ label {
                 <div class="input-group-text rounded-0">〒</div>
               </div>
               <input id="zip" name="zip" placeholder="101-0032" type="text" class="form-control form-control-sm rounded-0">
+              <span id="zipHelpBlock" class="form-text text-muted"><small>ハイフンを含めて半角数字で入力してください</small></span>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="address">住所</label>
             <textarea id="address" name="address" cols="40" rows="3" class="form-control form-control-sm rounded-0" aria-describedby="addressHelpBlock"></textarea>
             <span id="addressHelpBlock" class="form-text text-muted"><small>都道府県～部屋番号までを複数行で入力してください</small></span>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="phone_number">電話番号</label>
-            <input id="phone_number" name="phone_number" type="text" class="form-control form-control-sm rounded-0">
-          </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="name">氏名</label>
             <input id="name" name="name" type="text" class="form-control form-control-sm rounded-0">
+            <span id="nameHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="name_kana">フリガナ</label>
             <input id="name_kana" name="name_kana" type="text" class="form-control form-control-sm rounded-0">
+            <span id="name_kanaHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="my_number">個人番号</label>
             <input id="my_number" name="my_number" type="text" class="form-control form-control-sm rounded-0">
             <span id="my_numberHelpBlock" class="form-text text-muted"><small>12桁の半角数字で入力してください</small></span>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="phone_number">電話番号</label>
+            <input id="phone_number" name="phone_number" type="text" class="form-control form-control-sm rounded-0">
+            <span id="phone_numberHelpBlock" class="form-text text-muted"><small>ハイフン繋ぎの半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-md-4">
           <div class="form-group">
             <label>性別</label>
             <div>
@@ -101,31 +87,7 @@ label {
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="birth_date">生年月日</label>
-            <input id="birth_date" name="birth_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="output_date">出力年月日</label>
-            <input id="output_date" name="output_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="donation_date">寄附年月日</label>
-            <input id="donation_date" name="donation_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="mayor">送付先</label>
-            <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control form-control-sm rounded-0">
-          </div>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div class="form-group">
             <label for="donation_amount">寄附金額</label>
             <div class="input-group input-group-sm">
@@ -135,6 +97,24 @@ label {
               <input id="donation_amount" name="donation_amount" type="text" class="form-control form-control-sm rounded-0">
             </div>
             <span id="donation_amountHelpBlock" class="form-text text-muted"><small>半角数字で入力してください</small></span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="birth_date">生年月日</label>
+            <input id="birth_date" name="birth_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="output_date">出力年月日</label>
+            <input id="output_date" name="output_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="donation_date">寄附年月日</label>
+            <input id="donation_date" name="donation_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
           </div>
         </div>
         <div class="col-md-12">
@@ -166,31 +146,12 @@ label {
       </div>
     </form>
   </div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/ja.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
-<script type="text/javascript">
-  $(function () {
-    $('#birth_date, #output_date, #donation_date').datetimepicker({
-      format: 'YYYY/MM/DD',
-      locale: 'ja'
-    });
-
-    // 生年月日に初期値をセット
-    if ($('#birth_date').val() == '') {
-      $('#birth_date').val(moment('1989-01-01').format("YYYY/MM/DD"));
-    }
-    // 出力年月日、寄附年月日に現在日をセット
-    if ($('#output_date').val() == '') {
-      $('#output_date').val(moment().format("YYYY/MM/DD"));
-    }
-    if ($('#donation_date').val() == '') {
-      $('#donation_date').val(moment().format("YYYY/MM/DD"));
-    }
-  });
-</script>
+  <script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="./node_modules/popper.js/dist/popper.min.js"></script>
+  <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="./node_modules/moment/moment.js"></script>
+  <script type="text/javascript" src="./node_modules/moment/locale/ja.js"></script>
+  <script type="text/javascript" src="./node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js"></script>
+  <script type="text/javascript" src="./js/script.js"></script>
 </body>
 </html>
