@@ -14,6 +14,13 @@
 }
 h1 {
     text-align: center;
+    font-size: 1.5rem;
+}
+h1+ul li {
+    font-size: 80%;
+}
+label {
+    font-size: 90%;
 }
 
 .datepicker-days th.dow:first-child,
@@ -27,47 +34,59 @@ h1 {
 </style>
 </head>
 <body>
-  <div class="container" style="width: 800px;">
-    <div class="row">
-      <div class="col-md-12">
-        <h1><small>ワンストップ特例申請書ジェネレータ</small></h1>
-        <ul>
-          <li>ふるさと納税で寄付先に送付するワンストップ特例申請書について入力した内容を元にPDF出力を行うツールです。</li>
-          <li>当ツールを使用しての申請書提出の実績はないので心配な方は使用しないようお願いします。</li>
-        </ul>
-        <!-- created by https://bootstrapformbuilder.com/ -->
-        <form action="/download_pdf" method="POST">
+  <div class="container mt-3 mb-3" style="width: 800px;">
+    <h1>ワンストップ特例申請書ジェネレータ</h1>
+    <ul>
+      <li>ふるさと納税で寄付先に送付するワンストップ特例申請書について入力した内容を元にPDF出力を行うツールです。</li>
+      <li>当ツールを使用しての申請書提出の実績はないので心配な方は使用しないようお願いします。</li>
+    </ul>
+    <!-- created by https://bootstrapformbuilder.com/ -->
+    <form action="./" method="POST">
+      <div class="row">
+        <div class="col-md-6">
           <div class="form-group">
             <label for="zip">郵便番号</label>
-            <div class="input-group">
+            <div class="input-group input-group-sm">
               <div class="input-group-prepend">
                 <div class="input-group-text rounded-0">〒</div>
               </div>
-              <input id="zip" name="zip" placeholder="101-0032" type="text" class="form-control rounded-0">
+              <input id="zip" name="zip" placeholder="101-0032" type="text" class="form-control form-control-sm rounded-0">
             </div>
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="address">住所</label>
-            <textarea id="address" name="address" cols="40" rows="3" class="form-control rounded-0" aria-describedby="addressHelpBlock"></textarea>
+            <textarea id="address" name="address" cols="40" rows="3" class="form-control form-control-sm rounded-0" aria-describedby="addressHelpBlock"></textarea>
             <span id="addressHelpBlock" class="form-text text-muted"><small>都道府県～部屋番号までを複数行で入力してください</small></span>
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="phone_number">電話番号</label>
-            <input id="phone_number" name="phone_number" type="text" class="form-control rounded-0">
+            <input id="phone_number" name="phone_number" type="text" class="form-control form-control-sm rounded-0">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="name">氏名</label>
-            <input id="name" name="name" type="text" class="form-control rounded-0">
+            <input id="name" name="name" type="text" class="form-control form-control-sm rounded-0">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="name_kana">フリガナ</label>
-            <input id="name_kana" name="name_kana" type="text" class="form-control rounded-0">
+            <input id="name_kana" name="name_kana" type="text" class="form-control form-control-sm rounded-0">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="my_number">個人番号</label>
-            <input id="my_number" name="my_number" type="text" class="form-control rounded-0">
+            <input id="my_number" name="my_number" type="text" class="form-control form-control-sm rounded-0">
             <span id="my_numberHelpBlock" class="form-text text-muted"><small>12桁の半角数字で入力してください</small></span>
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label>性別</label>
             <div>
@@ -81,34 +100,46 @@ h1 {
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="birth_date">生年月日</label>
-            <input id="birth_date" name="birth_date" type="text" class="form-control datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
+            <input id="birth_date" name="birth_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="output_date">出力年月日</label>
-            <input id="output_date" name="output_date" type="text" class="form-control datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
+            <input id="output_date" name="output_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="donation_date">寄附年月日</label>
-            <input id="donation_date" name="donation_date" type="text" class="form-control datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
+            <input id="donation_date" name="donation_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="mayor">送付先</label>
-            <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control rounded-0">
+            <input id="mayor" name="mayor" placeholder="てすと市長" type="text" class="form-control form-control-sm rounded-0">
           </div>
+        </div>
+        <div class="col-md-6">
           <div class="form-group">
             <label for="donation_amount">寄附金額</label>
-            <div class="input-group">
+            <div class="input-group input-group-sm">
               <div class="input-group-prepend">
                 <div class="input-group-text rounded-0">￥</div>
               </div>
-              <input id="donation_amount" name="donation_amount" type="text" class="form-control rounded-0">
+              <input id="donation_amount" name="donation_amount" type="text" class="form-control form-control-sm rounded-0">
             </div>
             <span id="donation_amountHelpBlock" class="form-text text-muted"><small>半角数字で入力してください</small></span>
           </div>
+        </div>
+        <div class="col-md-12">
           <label>チェック事項</label>
-          <div class="form-group">
+          <div class="form-group mb-1">
             <div>
               <div class="form-check form-check-inline">
                 <label for="check_one_0" class="form-check-label">①　地方税法附則第７条第１項（第８項）に規定する申告特例対象寄附者である</label>
@@ -116,6 +147,8 @@ h1 {
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-md-12">
           <div class="form-group">
             <div>
               <div class="form-check form-check-inline">
@@ -124,12 +157,14 @@ h1 {
               </div>
             </div>
           </div>
+        </div>
+        <div class="col-md-12">
           <div class="form-group">
             <button name="submit" type="submit" class="btn btn-secondary rounded-0" style="width:100%">PDF作成</button>
           </div>
-        </form>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
