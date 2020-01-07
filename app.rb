@@ -97,10 +97,6 @@ post '/' do
   report.generate filename: file_path
 
   # PDFダウンロード
-  # stat = File::stat(file_path)
-  # send_file(file_path, :filename => file_name, :length => stat.size, :type => 'application/octet-stream')
-
-  # PDFダウンロード
   # ※レスポンスに書き込む前にPDFファイルを削除する。
   # バイナリ形式のままファイルを読み込みローカル変数に格納→ファイル削除→レスポンスに書き込み
   #（ずばりこれっていう回答が見つけられなかったので他にやり様があるような気もする）
