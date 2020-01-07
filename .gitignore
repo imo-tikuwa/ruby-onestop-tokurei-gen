@@ -1,3 +1,4 @@
 /vendor/
 /output/*.pdf
 /public/node_modules/*
+/tmp/*

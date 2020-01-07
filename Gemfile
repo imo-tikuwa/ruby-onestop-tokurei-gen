@@ -13,3 +13,5 @@ gem "sinatra-contrib", "~> 2.0"
 gem "thinreports", "~> 0.10.3"
 
 gem "wareki", "~> 1.1"
+
+gem "unicorn", "~> 5.5"
