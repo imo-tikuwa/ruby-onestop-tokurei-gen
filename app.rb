@@ -3,6 +3,11 @@ require 'sinatra/reloader'
 require 'thinreports'
 require 'date'
 require 'wareki'
+require 'logger'
+
+# デバッグ用のロガー追加
+logger = Logger.new(STDOUT)
+logger.level = Logger::DEBUG
 
 # views/index.erbを表示
 get '/' do
@@ -94,6 +99,15 @@ post '/' do
   # PDFダウンロード
   stat = File::stat(file_path)
   send_file(file_path, :filename => file_name, :length => stat.size, :type => 'application/octet-stream')
+
+  # PDFダウンロード
+  # PDFをレスポンスに書き込む前に削除する（うまく行かない。レスポンスの書き方が違うっぽい？）
+  # file_data = File.read(file_path)
+  # File.delete(file_path)
+  # logger.debug(file_path)
+  # headers['Content-Type'] = "application/octet-stream"
+  # headers['Content-Disposition'] = "attachment;filename=" + file_name
+  # response.write(file_data)
 end
 
 # カンマ区切りの数字文字列を返す
