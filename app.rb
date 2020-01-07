@@ -4,9 +4,9 @@ require 'thinreports'
 require 'date'
 require 'wareki'
 
-# index.htmlを表示
+# views/index.erbを表示
 get '/' do
-  send_file File.join(settings.public_folder, 'index.html')
+  erb :index
 end
 
 # PDFをダウンロードするルーティング
