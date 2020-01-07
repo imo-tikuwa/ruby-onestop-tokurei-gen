@@ -97,17 +97,20 @@ post '/' do
   report.generate filename: file_path
 
   # PDFダウンロード
-  stat = File::stat(file_path)
-  send_file(file_path, :filename => file_name, :length => stat.size, :type => 'application/octet-stream')
+  # stat = File::stat(file_path)
+  # send_file(file_path, :filename => file_name, :length => stat.size, :type => 'application/octet-stream')
 
   # PDFダウンロード
-  # PDFをレスポンスに書き込む前に削除する（うまく行かない。レスポンスの書き方が違うっぽい？）
-  # file_data = File.read(file_path)
-  # File.delete(file_path)
-  # logger.debug(file_path)
-  # headers['Content-Type'] = "application/octet-stream"
-  # headers['Content-Disposition'] = "attachment;filename=" + file_name
-  # response.write(file_data)
+  # ※レスポンスに書き込む前にPDFファイルを削除する。
+  # バイナリ形式のままファイルを読み込みローカル変数に格納→ファイル削除→レスポンスに書き込み
+  #（ずばりこれっていう回答が見つけられなかったので他にやり様があるような気もする）
+  # binreadについて参考：https://qiita.com/kimitaka/items/f50fc3cea8243d1125a9
+  file_data = File.binread(file_path)
+  File.delete(file_path)
+  headers['Content-Type'] = "application/octet-stream"
+  headers['Content-Length'] = file_data.length
+  headers['Content-Disposition'] = "attachment;filename=\"" + file_name + "\""
+  file_data
 end
 
 # カンマ区切りの数字文字列を返す
