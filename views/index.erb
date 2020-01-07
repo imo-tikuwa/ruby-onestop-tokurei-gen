@@ -25,6 +25,16 @@
     <!-- created by https://bootstrapformbuilder.com/ -->
     <form action="./" method="POST">
       <div class="row">
+        <div class="col-md-8">
+          <div class="form-group">
+            <button name="submit" type="submit" class="btn btn-sm btn-secondary rounded-0" style="width:100%">PDF作成</button>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <button id="test" type="button" class="btn btn-sm btn-secondary rounded-0" style="width:100%">テストデータで埋める</button>
+          </div>
+        </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="mayor">送付先</label>
@@ -47,35 +57,35 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="address">住所</label>
-            <textarea id="address" name="address" cols="40" rows="3" class="form-control form-control-sm rounded-0" aria-describedby="addressHelpBlock"></textarea>
+            <textarea id="address" name="address" placeholder="東京都　千代田区&#13;&#10;ほげほげ１－２－３&#13;&#10;ふがふがマンション２０３号室" cols="40" rows="3" class="form-control form-control-sm rounded-0" aria-describedby="addressHelpBlock"></textarea>
             <span id="addressHelpBlock" class="form-text text-muted"><small>都道府県～部屋番号までを複数行で入力してください</small></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="name">氏名</label>
-            <input id="name" name="name" type="text" class="form-control form-control-sm rounded-0">
+            <input id="name" name="name" placeholder="てすと　氏名" type="text" class="form-control form-control-sm rounded-0">
             <span id="nameHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="name_kana">フリガナ</label>
-            <input id="name_kana" name="name_kana" type="text" class="form-control form-control-sm rounded-0">
+            <input id="name_kana" name="name_kana" placeholder="テスト　シメイ" type="text" class="form-control form-control-sm rounded-0">
             <span id="name_kanaHelpBlock" class="form-text text-muted"><small>姓名の間に全角スペースを入れてください</small></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="my_number">個人番号</label>
-            <input id="my_number" name="my_number" type="text" class="form-control form-control-sm rounded-0">
+            <input id="my_number" name="my_number" placeholder="111122223333" type="text" class="form-control form-control-sm rounded-0">
             <span id="my_numberHelpBlock" class="form-text text-muted"><small>12桁の半角数字で入力してください</small></span>
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="phone_number">電話番号</label>
-            <input id="phone_number" name="phone_number" type="text" class="form-control form-control-sm rounded-0">
+            <input id="phone_number" name="phone_number" placeholder="000-1111-2222" type="text" class="form-control form-control-sm rounded-0">
             <span id="phone_numberHelpBlock" class="form-text text-muted"><small>ハイフン繋ぎの半角数字で入力してください</small></span>
           </div>
         </div>
@@ -101,7 +111,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text rounded-0">￥</div>
               </div>
-              <input id="donation_amount" name="donation_amount" type="text" class="form-control form-control-sm rounded-0">
+              <input id="donation_amount" name="donation_amount" placeholder="10000" type="text" class="form-control form-control-sm rounded-0">
             </div>
             <span id="donation_amountHelpBlock" class="form-text text-muted"><small>半角数字で入力してください</small></span>
           </div>
@@ -109,19 +119,19 @@
         <div class="col-md-4">
           <div class="form-group">
             <label for="birth_date">生年月日</label>
-            <input id="birth_date" name="birth_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
+            <input id="birth_date" name="birth_date" placeholder="1989/01/02" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#birth_date">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="output_date">出力年月日</label>
-            <input id="output_date" name="output_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
+            <input id="output_date" name="output_date" placeholder="2020/01/07" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#output_date">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
             <label for="donation_date">寄附年月日</label>
-            <input id="donation_date" name="donation_date" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
+            <input id="donation_date" name="donation_date" placeholder="2019/11/22" type="text" class="form-control form-control-sm datetimepicker-input rounded-0" data-toggle="datetimepicker" data-target="#donation_date">
           </div>
         </div>
         <div class="col-md-12">
@@ -143,11 +153,6 @@
                 <input name="check_two" id="check_two_0" type="checkbox" class="form-check-input" value="yes">
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <button name="submit" type="submit" class="btn btn-secondary rounded-0" style="width:100%">PDF作成</button>
           </div>
         </div>
       </div>

@@ -15,4 +15,14 @@ $(function () {
   if ($('#donation_date').val() == '') {
     $('#donation_date').val(moment().format("YYYY/MM/DD"));
   }
+
+  // テストデータで埋めるボタンの処理
+  $("#test").on("click", function(){
+    $("form").find("input[type='text'], textarea").each(function(input_index, input_item){
+      let $input = $(input_item);
+      $input.val($input.attr('placeholder'));
+    });
+    $("#radio_1").trigger('click');
+    $("#check_one_0, #check_two_0").prop('checked', true);
+  });
 });
