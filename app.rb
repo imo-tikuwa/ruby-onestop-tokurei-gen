@@ -16,23 +16,29 @@ post '/' do
   file_path = 'output/' + file_name
 
   # 生年月日
-  birth_date = Date.parse(params[:birth_date])
-  birth_date_gengo = birth_date.strftime("%Je")
-  birth_year = birth_date.strftime("%Jg")
-  birth_month = birth_date.strftime("%-m")
-  birth_day = birth_date.strftime("%-d")
+  unless params[:birth_date].empty?
+    birth_date = Date.parse(params[:birth_date])
+    birth_date_gengo = birth_date.strftime("%Je")
+    birth_year = birth_date.strftime("%Jg")
+    birth_month = birth_date.strftime("%-m")
+    birth_day = birth_date.strftime("%-d")
+  end
 
   # 出力年月日
-  output_date = Date.parse(params[:output_date])
-  output_year = output_date.strftime("%Jg")
-  output_month = output_date.strftime("%-m")
-  output_day = output_date.strftime("%-d")
+  unless params[:output_date].empty?
+    output_date = Date.parse(params[:output_date])
+    output_year = output_date.strftime("%Jg")
+    output_month = output_date.strftime("%-m")
+    output_day = output_date.strftime("%-d")
+  end
 
   # 寄附年月日
-  donation_date = Date.parse(params[:donation_date])
-  donation_year = donation_date.strftime("%Jg")
-  donation_month = donation_date.strftime("%-m")
-  donation_day = donation_date.strftime("%-d")
+  unless params[:donation_date].empty?
+    donation_date = Date.parse(params[:donation_date])
+    donation_year = donation_date.strftime("%Jg")
+    donation_month = donation_date.strftime("%-m")
+    donation_day = donation_date.strftime("%-d")
+  end
 
   # PDF生成
   report = Thinreports::Report.new layout: 'tlfs/onestop.tlf'
