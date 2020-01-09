@@ -8,11 +8,17 @@ h1 {
     text-align: center;
     font-size: 1.5rem;
 }
-h1+ul li {
+h1+hr+ul li {
     font-size: 80%;
 }
 label {
     font-size: 90%;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.2rem;
+  }
 }
 
 .datepicker-days th.dow:first-child,
