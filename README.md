@@ -20,6 +20,7 @@ pumaやunicornなどのWebサーバーは使わずにとりあえず確認でき
 # bundle install --path vendor/bundle
 # cd public
 # npm ci
+# chmod +x ../server/server.sh
 # ../server/server.sh start
 ```
 1. http://[public ip address]:3000/ にアクセス
