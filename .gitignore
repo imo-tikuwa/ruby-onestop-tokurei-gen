@@ -2,3 +2,4 @@
 /output/*.pdf
 /public/node_modules/*
 /tmp/*
+/log/application.log
