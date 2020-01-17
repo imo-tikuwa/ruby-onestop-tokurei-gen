@@ -25,6 +25,9 @@ pumaやunicornなどのWebサーバーは使わずにとりあえず確認でき
 ```
 1. http://[public ip address]:3000/ にアクセス
 
+## デモサイト
+https://onestop.imo-tikuwa.com/
+
 ## メモ
 rbenvを使ってます。  
 rubyのバージョンは2.6.0です。  
