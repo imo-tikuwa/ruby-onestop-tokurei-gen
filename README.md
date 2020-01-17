@@ -1,4 +1,9 @@
 # ruby-onestop-tokurei-gen
+ふるさと納税のワンストップ特例申請書を出力するWebアプリです。
+![image](https://user-images.githubusercontent.com/48991931/71883715-54ff2580-317a-11ea-9133-0abbcac3dd37.png)
+
+## デモサイト
+https://onestop.imo-tikuwa.com/
 
 ## 環境構築(Windows)
 ```
@@ -25,14 +30,6 @@ pumaやunicornなどのWebサーバーは使わずにとりあえず確認でき
 ```
 1. http://[public ip address]:3000/ にアクセス
 
-## デモサイト
-https://onestop.imo-tikuwa.com/
-
 ## メモ
 rbenvを使ってます。  
-rubyのバージョンは2.6.0です。  
-  
-アクセスすると以下のようなフォームが表示されます。  
-PDF作成ボタンをクリックすると入力した内容でPDFを出力します。  
-![image](https://user-images.githubusercontent.com/48991931/71883715-54ff2580-317a-11ea-9133-0abbcac3dd37.png)
-
+rubyのバージョンは2.6.0です。
