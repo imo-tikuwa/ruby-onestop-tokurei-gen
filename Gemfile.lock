@@ -8,7 +8,7 @@ GEM
     prawn (2.2.2)
       pdf-core (~> 0.7.0)
       ttfunk (~> 1.5)
-    rack (2.0.8)
+    rack (2.2.3)
     rack-protection (2.0.7)
       rack
     sinatra (2.0.7)
@@ -32,6 +32,7 @@ GEM
     ya_kansuji (0.2.0)
 
 PLATFORMS
+  ruby
   x86-mingw32
 
 DEPENDENCIES
